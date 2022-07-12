@@ -1,32 +1,23 @@
-var contadorh1 = document.querySelector('#cont')
-var set_to = document.getElementById("set_to").defaultValue = 0;
-var step = document.getElementById("step").defaultValue = 10;
-var startInterval;
-var contador = set_to;
-var isStart = false;
-var isCountUp = true;
+let contadorh1 = document.querySelector('#cont')
+let set_to = document.getElementById("set_to").defaultValue = 0;
+let step = document.getElementById("step").defaultValue = 10;
+let startInterval;
+let contador = set_to;
+let isStart = false;
+let isCountUp = true;
 
 
-document.getElementById("start").onclick = function() {start()};
-document.getElementById("pause").onclick = function() {stopF()};
-document.getElementById("reset").onclick = function() {reset()};
-document.getElementById("up").onclick    = function() {countUp()};
-document.getElementById("down").onclick  = function() {countdown()};
+document.getElementById("start").onclick = start;
+document.getElementById("pause").onclick = pause;
+document.getElementById("reset").onclick = reset;
+document.getElementById("up").onclick    = countUp;
+document.getElementById("down").onclick  = countdown;
 
 
 function updateCount() {
     step = +document.getElementById('step').value;
-    if (isCountUp === true) { 
-        contador = contador + step;
-        console.log(contador);
-        //render
-        contadorh1.innerHTML = contador;
-    } else {
-        contador = contador - step;
-        console.log(contador);
-        //render
-        contadorh1.innerHTML = contador;
-    }
+    contador = isCountUp === true ? contador + step : contador - step
+    contadorh1.innerHTML = contador;
 }
 
 
@@ -36,7 +27,8 @@ function start() {
         startInterval = setInterval(updateCount, 1000);
     }
 }
-function stopF() {
+
+function pause() {
     isStart = false;
     clearInterval(startInterval);
 }
@@ -53,14 +45,3 @@ function countUp() {
 function countdown() {
     isCountUp = false;
 }
-
-
-function getInputValue(){
-    // Selecting the input element and get its value 
-    var inputVal = document.getElementById("myInput").value;
-    
-    // Displaying the value
-    alert(inputVal);
-}
-
-

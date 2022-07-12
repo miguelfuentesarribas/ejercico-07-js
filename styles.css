@@ -26,7 +26,7 @@ button:hover {
 }
 
 h4 {
-    margin-block-end: 3px;
+    margin-block-end: 7px;
 }
 
 h1 {
@@ -34,12 +34,4 @@ h1 {
     margin-block-end: 3px;
     margin-block-start: 3px;
     padding: 0px;
-}
-
-.setup {
-    display: flex;
-}
-
-.count {
-    display: flex;
 }
